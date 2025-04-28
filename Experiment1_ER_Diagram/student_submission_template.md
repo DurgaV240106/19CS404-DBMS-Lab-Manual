@@ -1,6 +1,6 @@
 ## ER Diagram 
 ## NAME: Durga V
-# REG NUMBER: 212223230052
+## REG NUMBER: 212223230052
 
 ## Scenario Chosen:
  University 
