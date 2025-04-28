@@ -1,10 +1,14 @@
-# ER Diagram Submission - Student Name
+## ER Diagram:
+## Ex.no:1
+## Name: DURGA V
+## Register no: 212223230052
 
 ## Scenario Chosen:
 University / Hospital (choose one)
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![image](https://github.com/user-attachments/assets/6b3bd133-3c85-4fe9-8427-9601e6fdfdbd)
+
 
 ## Entities and Attributes:
 - Entity1: Attributes
