@@ -289,9 +289,6 @@ VALUES(1,"Ramesh",32,"Ahmedabad",2000),
 
 ![image](https://github.com/user-attachments/assets/6c2cdcb8-6c4a-43da-b6a8-e8bcc4d6f925)
 
-## Result:
-
-Thus the program was executed successfully
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
