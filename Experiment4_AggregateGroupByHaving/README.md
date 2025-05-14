@@ -38,218 +38,171 @@ HAVING condition;
 
 **Question 1**
 --
-![image](https://github.com/user-attachments/assets/eb028d1b-b115-43b0-b314-20eecba0319d)
+![image](https://github.com/user-attachments/assets/023d49eb-b94c-4c96-8153-11ce83f77898)
 
 
 ```sql
-SELECT 
-    g.student_name,
-    g.grade
-FROM 
-    GRADES g
-WHERE 
-    g.grade = (
-        SELECT MAX(g2.grade)
-        FROM GRADES g2
-        WHERE g2.subject = g.subject
-    );
+SELECT PatientID, COUNT(*) AS TotalRecords
+FROM MedicalRecords
+GROUP BY PatientID 
+;
 
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/ba1a6bd7-4d2a-4fa7-8eeb-a7e6caa1b03e)
+![image](https://github.com/user-attachments/assets/493ce7f6-f7bd-46a7-9c78-e73795b46d7f)
+
 
 
 **Question 2**
 ---
-![image](https://github.com/user-attachments/assets/efc8e12e-e5dd-4e37-b01c-dec4cd3554c8)
+![image](https://github.com/user-attachments/assets/9bc14327-9237-4a57-b8d2-18cb79875ec4)
+
 
 
 ```sql
-SELECT 
-    o.ord_no,
-    o.purch_amt,
-    o.ord_date,
-    o.customer_id,
-    o.salesman_id
-FROM 
-    orders o
-JOIN 
-    salesman s ON o.salesman_id = s.salesman_id
-WHERE 
-    s.city = 'New York';
-
+SELECT DATE(AppointmentDateTime) AS AppointmentDate, COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DATE(AppointmentDateTime)
+;
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/c04dbd6b-1c7e-4e0e-a6ed-17e36d1d0afe)
+![image](https://github.com/user-attachments/assets/ad873b73-eef5-49be-84ae-987496c36b6e)
+
 
 
 **Question 3**
 ---
-![image](https://github.com/user-attachments/assets/d7872dcf-19bc-4f55-b65d-7ae2eb0ec924)
-
+![image](https://github.com/user-attachments/assets/5d9dac8a-8699-42e1-8e33-54671f8c955e)
 
 ```sql
-SELECT *
-FROM CUSTOMERS
-WHERE SALARY = 1500;
+SELECT DoctorID, COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DoctorID
+;
 
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/3040e351-5d22-4042-9549-ff314a9f2935)
-
+![image](https://github.com/user-attachments/assets/0728045b-c13c-4794-9052-cedea7eeeb0f)
 
 **Question 4**
 ---
-![image](https://github.com/user-attachments/assets/aa217b20-ba3c-4fba-8699-903bda8b43a6)
-
+![image](https://github.com/user-attachments/assets/6a79a494-e9a1-476a-a59e-af63a3c5a1f1)
 
 ```sql
-SELECT 
-    medication_id AS medic,
-    medication_name,
-    dosage
-FROM 
-    Medications
-WHERE 
-    dosage = (
-        SELECT MIN(dosage)
-        FROM Medications
-    );
+SELECT AVG(LENGTH(email)) AS avg_email_length_below_30
+FROM customer
+WHERE city = 'Mumbai';
 
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/fc253880-cc7b-4997-a28c-c8185e77f464)
-
+![image](https://github.com/user-attachments/assets/2405d4de-5788-47f4-b663-8dfe9aabd0c9)
 
 **Question 5**
 ---
-![image](https://github.com/user-attachments/assets/14685b45-3097-40e9-bdda-cc4be738f5c8)
-
+![image](https://github.com/user-attachments/assets/b6a76bc6-ea3e-4cac-8b33-c41223b16fdf)
 
 ```sql
-SELECT 
-    student_id,
-    student_name,
-    subject,
-    grade
-FROM 
-    GRADES g
-WHERE 
-    grade = (
-        SELECT MIN(g2.grade)
-        FROM GRADES g2
-        WHERE g2.subject = g.subject
-    );
+SELECT MAX(purch_amt) AS MAXIMUM
+FROM orders;
 
 
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/9fab27e7-6657-4fbb-a830-0da7f479a93f)
+![image](https://github.com/user-attachments/assets/5e882bbd-45da-4c63-aa5e-692d38dc86aa)
 
 
 **Question 6**
 ---
-![image](https://github.com/user-attachments/assets/e6fd2262-9e7f-4d5a-82b4-a26a3ed57584)
+![image](https://github.com/user-attachments/assets/48f6a6ae-e116-4bde-91a2-891bfa97be7c)
 
 
 ```sql
-SELECT o.ord_no, o.purch_amt, o.ord_date, o.customer_id, o.salesman_id
-FROM ORDERS o
-JOIN SALESMAN s ON o.salesman_id = s.salesman_id
-WHERE s.city = 'New York';
+SELECT SUM(income) AS total_income
+FROM employee
+WHERE age >= 40;
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/101bab0d-9d69-48fa-a181-7cfdeeabb3b0)
+![image](https://github.com/user-attachments/assets/895e45be-afd7-4a75-9587-487697bafd56)
 
 
 **Question 7**
 ---
-![image](https://github.com/user-attachments/assets/ba4b68e1-6b2a-45e0-a0ee-db823c3c05ec)
+![image](https://github.com/user-attachments/assets/a7c598d3-2d6a-47f8-b55a-35b07f23083a)
 
 
 ```sql
-SELECT *
-FROM CUSTOMERS
-WHERE ADDRESS = 'Delhi';
-
+SELECT COUNT(*) AS employees_count
+FROM employee
+GROUP BY income > 50000;
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/80d203ce-7255-47a5-ae89-238bbf5861e3)
+![image](https://github.com/user-attachments/assets/98696f2f-7352-466e-babf-399c121f3251)
 
 **Question 8**
 ---
-![image](https://github.com/user-attachments/assets/5af92152-878f-4a94-8263-63dab1e663c4)
+![image](https://github.com/user-attachments/assets/a73fcce0-9c6a-4954-b44a-19fe6c18e84e)
+
 
 ```sql
-SELECT 
-    medication_id AS medic,
-    medication_name,
-    dosage
-FROM 
-    Medications
-WHERE 
-    dosage = (
-        SELECT MAX(dosage)
-        FROM Medications
-    );
+SELECT jdate,SUM(workhour) AS 'SUM(workhour)'
+FROM employee1
+GROUP BY jdate
+HAVING SUM(workhour) > 40;
 
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/176f8112-51fa-450d-881c-9cf2504f134b)
-
+![image](https://github.com/user-attachments/assets/2d646ebe-a197-4ef9-85e0-26a112e4ff57)
 
 **Question 9**
 ---
-![image](https://github.com/user-attachments/assets/c9aaf654-42cd-4302-ae84-bb83ef4055df)
+![image](https://github.com/user-attachments/assets/161964f5-91b9-44c0-9d28-e0128bf0e4a6)
 
 
 ```sql
-SELECT *
-FROM customer
-WHERE customer_id = (
-    SELECT salesman_id - 2001
-    FROM salesman
-    WHERE name = 'Mc Lyon'
-);
+SELECT  (age / 5) * 5 AS age_group,MAX(salary) AS 'MAX(salary)'
+FROM customer1
+GROUP BY age_group
+HAVING MAX(salary) > 8000;
 
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/002ca575-f039-4c29-addf-ccfcb3133b83)
-
+![image](https://github.com/user-attachments/assets/66087769-fad8-47d1-92ef-c02ab34811f6)
 
 **Question 10**
 ---
-![image](https://github.com/user-attachments/assets/f16d7812-cbae-4de4-afde-87d6c7110ed5)
-
+![image](https://github.com/user-attachments/assets/f8bcabd3-410b-4a64-a511-22ec7eb30e53)
 
 ```sql
-SELECT *
-FROM CUSTOMERS
-WHERE SALARY < 2500;
+SELECT category_id,Min(Price) AS 'Price'
+FROM products
+GROUP BY category_id
+HAVING Min(Price) < 10;
 
 ```
 
 **Output:**
 
-![image](https://github.com/user-attachments/assets/2f282e34-33e8-49f8-9e82-522d99a251c4)
+![image](https://github.com/user-attachments/assets/945e01fa-701e-488c-b7db-808a0d2d4c08)
+
+
 
 
 ## RESULT
